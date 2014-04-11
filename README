@@ -1,0 +1,12 @@
+This was an attempt to build an FM Receiver using RTL SDR.  I had referred to a lot of sources while writing this one.  Most of the ideas were derived from the following references
+
+1) rtl_fm : https://github.com/steve-m/librtlsdr
+2) SDR Sharp : https://www.assembla.com/code/sdrsharp/subversion/nodes
+
+Also the book by B.P.Lathi on Communication Systems provided a good overview on the fundamentals of FM Modulation.
+
+There is a lot to improve on this one....
+
+Ajith Peter
+Standard Process
+

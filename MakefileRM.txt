@@ -1,0 +1,8 @@
+ifeq ($(OS),Windows_NT)
+   RM = rm -f
+   FixPath = $1
+else
+   RM = rm -f
+   FixPath = $1
+endif
+

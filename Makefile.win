@@ -1,0 +1,47 @@
+# Project: FMReceiver
+# Compiler: Default GCC compiler
+# Compiler Type: MingW 3
+# Makefile created by wxDev-C++ IDE 7.4.2.569 on 18-03-14 09:45
+
+WXLIBNAME = wxmsw29u
+CPP       = g++.exe
+CC        = gcc.exe
+WINDRES   = "windres.exe"
+OBJ       = Objects/MingW/main.o Objects/MingW/SampleFilter.o Objects/MingW/rtl.o
+LINKOBJ   = "Objects/MingW/main.o" "Objects/MingW/SampleFilter.o" "Objects/MingW/rtl.o"
+LIBS      = -L"C:/Program Files/Dev-Cpp/lib/wx/gcc_lib" -L"C:/Program Files/Dev-Cpp/lib" -L"C:/Program Files/Dev-Cpp/MinGW32/lib" rtl-sdr-release/x32/rtlsdr.lib "../../../../Program Files/Dev-Cpp/MinGW32/lib/libole32.a" "../../../../Program Files/Dev-Cpp/MinGW32/lib/libwinmm.a" "../../../../Program Files/Dev-Cpp/MinGW32/lib/libkernel32.a"  
+INCS      = -I"C:/Program Files/Dev-Cpp/MinGW32/include" -I"C:/Users/rax/Desktop/FMReceiver/rtl-sdr-release" -I"C:/Users/rax/Desktop/FMReceiver/PA/include" -I"C:/Users/rax/Desktop/FMReceiver/PA/src/common" -I"C:/Users/rax/Desktop/FMReceiver/PA/src/hostapi/wmme" -I"C:/Users/rax/Desktop/FMReceiver/PA/src/os/win"
+CXXINCS   = -I"C:/Program Files/Dev-Cpp/MinGW32/include" -I"C:/Program Files/Dev-Cpp/" -I"C:/Program Files/Dev-Cpp/include/common" -I"C:/Users/rax/Desktop/FMReceiver/rtl-sdr-release" -I"C:/Users/rax/Desktop/FMReceiver/PA/include" -I"C:/Users/rax/Desktop/FMReceiver/PA/src/common" -I"C:/Users/rax/Desktop/FMReceiver/PA/src/hostapi/wmme" -I"C:/Users/rax/Desktop/FMReceiver/PA/src/os/win"
+RCINCS    = --include-dir "C:/PROGRA~1/Dev-Cpp/include/common"
+BIN       = Output/MingW/FMReceiver.exe
+DEFINES   = -DPA_USE_WMME=1
+CXXFLAGS  = $(CXXINCS) $(DEFINES)  
+CFLAGS    = $(INCS) $(DEFINES)  
+GPROF     = gprof.exe
+ifeq ($(OS),Windows_NT)
+   RM = del /Q
+   FixPath = $(subst /,\,$1)
+else
+   RM = rm -f
+   FixPath = $1
+endif
+LINK      = g++.exe
+
+.PHONY: all all-before all-after clean clean-custom
+all: all-before $(BIN) all-after
+
+include MakefileRM.txt
+clean: clean-custom
+	$(RM) $(call FixPath,$(LINKOBJ)) "$(call FixPath,$(BIN))"
+
+$(BIN): $(OBJ)
+	$(LINK) $(LINKOBJ) -o "$(BIN)" $(LIBS) 
+
+Objects/MingW/main.o: $(GLOBALDEPS) main.c
+	$(CC) -c main.c -o Objects/MingW/main.o $(CFLAGS)
+
+Objects/MingW/SampleFilter.o: $(GLOBALDEPS) SampleFilter.c
+	$(CC) -c SampleFilter.c -o Objects/MingW/SampleFilter.o $(CFLAGS)
+
+Objects/MingW/rtl.o: $(GLOBALDEPS) rtl.c
+	$(CC) -c rtl.c -o Objects/MingW/rtl.o $(CFLAGS)
